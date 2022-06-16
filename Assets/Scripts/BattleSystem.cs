@@ -12,32 +12,36 @@ public class BattleSystem : MonoBehaviour
     {
         // let's start by setting our player dancing stats to random numbers
         // style should be random between 1-10
-        int playerOneStyle = 0;
+        int playerOneStyle = Random.Range(0, 10);
         // luck should be random between 0-4
-        int playerOneLuck = 0;
+        int playerOneLuck = Random.Range(0, 4);
         // ryhtm should be random between 1-6
-        int playerOneRyhtm = 0;
+        int playerOneRyhtm = Random.Range(1, 6);
         // style should be random between 1-10
-        int playerTwoStyle = 0;
+        int playerTwoStyle = Random.Range(1, 10);
         // luck should be random between 0-4
-        int playerTwoLuck = 0;
+        int playerTwoLuck = Random.Range(0, 4);
         // ryhtm should be random between 1-6
-        int playerTwoRyhtm = 0;
+        int playerTwoRyhtm = Random.Range(1, 6);
 
         // let's set our player power levels, using an algorithm, the simpliest would be luck + style + rhythm
         // this algorthim should be the same for each character to keep it fair.
-        int playerOnePowerLevel = 0;
-        int playerTwoPowerLevel = 0;
+        int playerOnePowerLevel = playerOneLuck + playerOneStyle + playerOneRyhtm; 
+        int playerTwoPowerLevel = playerTwoLuck + playerTwoStyle + playerTwoRyhtm;
 
         // Debug out the two players, power levels.
+        Debug.Log("Player1 PowerLevel " + playerOnePowerLevel);
+        Debug.Log("Player2 PowerLevel " + playerTwoPowerLevel);
 
         // calculate the percentage chance of winning the fight for each character.
-        // todo this you'll need to add the two powers together, then divide you characters power against this and multiply the result by 100.
-        int totalPower = 0;
-        int playerOneChanceToWin = 0;
-        int playerTwoChanceToWin = 0;
-
+        // to do this you'll need to add the two powers together, then divide you characters power against this and multiply the result by 100.
+        int totalPower = playerOnePowerLevel + playerTwoPowerLevel;
+        int playerOneChanceToWin = ((playerOnePowerLevel / totalPower) * 100);
+        int playerTwoChanceToWin = ((playerTwoPowerLevel / totalPower) * 100);
+        
         // Debug out the chance of each character to win.
+        Debug.Log("Chance to win for player 1: " + playerOneChanceToWin);
+        Debug.Log("Chance to win for player 2: " + playerTwoChanceToWin);
 
         // We probably want to compare the powers of our characters and decide who has a higher power level; I just hope they aren't over 9000.  
 
