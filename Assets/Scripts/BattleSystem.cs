@@ -38,14 +38,43 @@ public class BattleSystem : MonoBehaviour
         int totalPower = playerOnePowerLevel + playerTwoPowerLevel;
         int playerOneChanceToWin = ((playerOnePowerLevel / totalPower) * 100);
         int playerTwoChanceToWin = ((playerTwoPowerLevel / totalPower) * 100);
-        
+
         // Debug out the chance of each character to win.
         Debug.Log("Chance to win for player 1: " + playerOneChanceToWin);
         Debug.Log("Chance to win for player 2: " + playerTwoChanceToWin);
 
-        // We probably want to compare the powers of our characters and decide who has a higher power level; I just hope they aren't over 9000.  
 
-            // Debug out which character has won, which has lost, or if it's a draw. 
-            // Debug out how much experience they should gain based on the difference of their chances to win, or if it's a draw award a default amount.
+        // We probably want to compare the powers of our characters and decide who has a higher power level; I just hope they aren't over 9000.  
+        // Debug out which character has won, which has lost, or if it's a draw. 
+
+        if (playerOnePowerLevel > playerTwoPowerLevel)
+        {
+            Debug.Log("PlayerOneWin");
+        }
+
+        if (playerTwoPowerLevel > playerOnePowerLevel)
+        {
+            Debug.Log("PlayerTwoWin");
+        }
+
+        if (playerOnePowerLevel == playerTwoPowerLevel)
+        {
+            Debug.Log("DRAWWWW!!!!!");
+        }
+
+        // Debug out how much experience they should gain based on the difference of their chances to win, or if it's a draw award a default amount.
+
+        if (playerOnePowerLevel > playerTwoPowerLevel)
+        {
+            Debug.Log("Player One gain 100 XP");
+        }
+        else if (playerTwoPowerLevel > playerOnePowerLevel)
+        {
+            Debug.Log("Player Two gain 100 XP");
+        }
+        else
+        {
+            Debug.Log("Both share the gain of 50 XP");
+        }
     }
 }
